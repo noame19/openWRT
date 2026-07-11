@@ -20,10 +20,10 @@ on:
         default: 'false'
 
 env:
-  #REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/coolsnowwolf/lede
   #REPO_URL: https://github.com/syb999/openwrt-15.05
   #REPO_URL: https://github.com/zk26/lede
-  REPO_URL: https://github.com/openwrt/openwrt
+  #REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   #CONFIG_FILE: LEDE-Wpr003n.config
