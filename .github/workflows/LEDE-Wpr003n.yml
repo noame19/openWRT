@@ -26,8 +26,8 @@ env:
   #REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  #CONFIG_FILE: LEDE-Wpr003n.config
-  CONFIG_FILE: pisen.config
+  CONFIG_FILE: LEDE-Wpr003n.config
+  #CONFIG_FILE: pisen.config
   DIY_P1_SH: LEDE-Wpr003n-1.sh
   DIY_P2_SH: LEDE-Wpr003n-2.sh
   #CONFIG_FILE: CC15-Wpr003n.config
