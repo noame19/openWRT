@@ -79,10 +79,6 @@ jobs:
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        # ubuntu-22.04 自带 Python 3.10,但 prereq-build.mk 的正则只匹配 3.6-3.9,
-        # 把 [6-9] 放宽到 [0-9]+ 覆盖 3.10+。这是 Update feeds / Download package
-        # 阶段 prereq-build 检查的前置修补,必须在它们之前完成。
-        sed -i 's|Python 3\\\.\[6-9\]\\\.\?|Python 3\\\.\[0-9\]+\\\.|g' include/prereq-build.mk
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
