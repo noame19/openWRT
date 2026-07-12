@@ -25,4 +25,5 @@ sudo timedatectl set-timezone "Asia/Shanghai"
 sudo apt update
 sudo apt-get install build-essential asciidoc binutils bzip2 gawk gettext git subversion libssl-dev libncurses5-dev patch unzip zlib1g-dev libc6-dev libbz2-dev gdisk flex python2
 
-git clone https://github.com/openwrt/openwrt.git
+#git clone https://github.com/noame19/openwrt-1.git
+git clone https://github.com/noame19/immortalwrt.git
