@@ -85,7 +85,18 @@ jobs:
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+      run: |
+        cd openwrt
+        # coolsnowwolf/packages 和 luci 默认拉 master 最新版,
+        # noame19/lede base 在 tag 20211107 (kernel 5.4),新版 feeds 不兼容 5.4。
+        # 切到 2022 年前版本对齐(用户本地验证过的日期锚点)。
+        for feed in packages luci; do
+          cd feeds/$feed
+          git fetch --unshallow 2>/dev/null || true
+          git checkout $(git rev-list -n 1 --before="2022-01-01" HEAD)
+          cd ../..
+        done
+        ./scripts/feeds install -a
 
     - name: Load custom configuration
       run: |
@@ -115,6 +126,9 @@ jobs:
       id: compile
       run: |
         cd openwrt
+        # ubuntu-22.04 自带 Python 3.10,但 prereq-build.mk 的正则只匹配 3.6-3.9,
+        # 把 [6-9] 放宽到 [0-9]+ 覆盖 3.10+。
+        sed -i 's|Python 3\\\.\[6-9\]\\\.\?|Python 3\\\.\[0-9\]+\\\.|g' include/prereq-build.mk
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "::set-output name=status::success"
