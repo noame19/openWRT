@@ -15,10 +15,3 @@
 
 
 
-
-#git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
-#git clone https://github.com/sirpdboy/luci-app-poweroffdevice.git package/luci-app-poweroffdevice
-#git clone https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
-#git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
-#git clone https://github.com/derisamedia/luci-theme-alpha.git package/luci-theme-alpha
-#git clone https://github.com/tty228/luci-app-nodogsplash.git package/luci-app-nodogsplash
